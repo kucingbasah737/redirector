@@ -1,0 +1,2 @@
+# redirector
+simple web redirect
