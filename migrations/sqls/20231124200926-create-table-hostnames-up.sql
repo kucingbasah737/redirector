@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS `hostnames` (
+  `name` VARCHAR(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL ,
+  `created` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+  `disabled` TINYINT(1) NOT NULL DEFAULT '0' ,
+  PRIMARY KEY (`name`)
+) ENGINE = InnoDB;
