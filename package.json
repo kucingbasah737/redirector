@@ -1,0 +1,42 @@
+{
+  "name": "redirector",
+  "version": "0.0.1",
+  "description": "Simple redirector service",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --recursive test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kucingbasah737/redirector.git"
+  },
+  "keywords": [
+    "web",
+    "redirector"
+  ],
+  "author": "Kucing Basah 737",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kucingbasah737/redirector/issues"
+  },
+  "homepage": "https://github.com/kucingbasah737/redirector#readme",
+  "devDependencies": {
+    "db-migrate": "^0.11.14",
+    "db-migrate-mysql": "^2.3.2",
+    "eslint": "^8.54.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.29.0",
+    "mocha": "^10.2.0",
+    "nodemon": "^3.0.1",
+    "should": "^13.2.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mysql2": "^3.6.5",
+    "sd-notify": "^2.8.0",
+    "uniqid": "^5.4.0",
+    "winston": "^3.11.0",
+    "winston-daily-rotate-file": "^4.7.1"
+  }
+}
