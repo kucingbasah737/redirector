@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha --recursive test",
     "postversion": "git push && git push --tags",
-    "version": "auto-changelog -p --commit-url https://github.com/kucingbasah737/redirector/commit/{id} --compare-url https://github.com/kucingbasah737/redirector/compare/{from}...{to} --issue-url https://github.com/kucingbasah737/redirector/issues/{id} && git add CHANGELOG.md"
+    "version": "auto-changelog -p --commit-url https://github.com/kucingbasah737/redirector/commit/{id} --compare-url https://github.com/kucingbasah737/redirector/compare/{from}...{to} --issue-url https://github.com/kucingbasah737/redirector/issues/{id} && git add CHANGELOG.md",
+    "serve-dev": "nodemon index.js serve"
   },
   "repository": {
     "type": "git",
