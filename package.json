@@ -34,6 +34,7 @@
     "bcrypt": "^5.1.1",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "geoip-lite": "^1.4.8",
     "ip-toolkit": "^1.0.10",
     "mysql2": "^3.6.5",
     "sd-notify": "^2.8.0",
