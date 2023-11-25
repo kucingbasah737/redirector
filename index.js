@@ -10,6 +10,18 @@ const { hideBin } = require('yargs/helpers');
 // const logger = require('./lib/logger');
 const sdNotify = require('./lib/sd-notify');
 
+const runWebServer = async () => {
+  // eslint-disable-next-line global-require
+  const webserver = require('./lib/webserver');
+
+  webserver();
+
+  // logger.info(`${MODULE_NAME} 300582D4: Starting webserver`);
+  if (process.env.SYSTEMD_NOTIFY) {
+    sdNotify();
+  }
+};
+
 const updatePasswordCmd = async () => {
   // eslint-disable-next-line global-require
   const updatePassword = require('./lib/update-password');
@@ -40,33 +52,62 @@ const updatePasswordCmd = async () => {
     process.exit(0);
   }
 
-  // console.log(`Going to update "${promptResult.email}" password`);
   try {
-    // eslint-disable-next-line no-unused-vars
-    const result = await updatePassword(null, promptResult.email, promptResult.newPassword);
+    await updatePassword(null, promptResult.email, promptResult.newPassword);
     console.log(`Password for ${promptResult.email} updated`);
-    // console.log(JSON.stringify(result, null, 2));
   } catch (e) {
     console.warn('Exception');
   }
   process.exit(0);
 };
 
-const runWebServer = async () => {
+const insertTargetCmd = async () => {
   // eslint-disable-next-line global-require
-  const webserver = require('./lib/webserver');
+  const insertTarget = require('./lib/insert-target');
 
-  webserver();
+  prompt.start();
+  const promptResult = await prompt.get([
+    {
+      name: 'email',
+      message: 'User email',
+      required: true,
+    },
+    {
+      name: 'hostname',
+      message: 'Hostname',
+      required: true,
+    },
+    {
+      name: 'path',
+      message: 'Path',
+      required: true,
+    },
+    {
+      name: 'targetUrl',
+      message: 'Redirect to',
+      required: true,
+    },
+  ]);
 
-  // logger.info(`${MODULE_NAME} 300582D4: Starting webserver`);
-  if (process.env.SYSTEMD_NOTIFY) {
-    sdNotify();
+  try {
+    const result = await insertTarget(
+      null,
+      promptResult.email,
+      promptResult.hostname,
+      promptResult.path,
+      promptResult.targetUrl,
+    );
+    console.log(JSON.stringify(result, null, 2));
+  } catch (e) {
+    console.warn('Exception');
   }
+  process.exit(0);
 };
 
 // eslint-disable-next-line no-unused-vars
 const { argv } = yargs(hideBin(process.argv))
   .command('update-password', 'update user password', () => {}, updatePasswordCmd)
+  .command('insert-target', 'insert new target', () => {}, insertTargetCmd)
   .command('serve', 'serve the world', () => {}, runWebServer)
   .demandCommand()
   .strict();
