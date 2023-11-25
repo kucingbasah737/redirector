@@ -9,9 +9,11 @@ const sdNotify = require('./lib/sd-notify');
 
 logger.info(`${MODULE_NAME} 300582D4: Starting`);
 
-require('./lib/webserver');
+const webserver = require('./lib/webserver');
 
 (async () => {
+  webserver();
+
   if (process.env.SYSTEMD_NOTIFY) {
     sdNotify();
   }
