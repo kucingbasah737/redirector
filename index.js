@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-const MODULE_NAME = 'MAIN';
+// const MODULE_NAME = 'MAIN';
 
 process.chdir(__dirname);
 
@@ -7,7 +7,7 @@ require('dotenv').config();
 const prompt = require('prompt');
 const yargs = require('yargs/yargs');
 const { hideBin } = require('yargs/helpers');
-const logger = require('./lib/logger');
+// const logger = require('./lib/logger');
 const sdNotify = require('./lib/sd-notify');
 
 const updatePasswordCmd = async () => {
@@ -58,7 +58,7 @@ const runWebServer = async () => {
 
   webserver();
 
-  logger.info(`${MODULE_NAME} 300582D4: Starting webserver`);
+  // logger.info(`${MODULE_NAME} 300582D4: Starting webserver`);
   if (process.env.SYSTEMD_NOTIFY) {
     sdNotify();
   }
