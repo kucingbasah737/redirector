@@ -10,6 +10,9 @@ if [ -z "MAXMIND_LICENSE_KEY" ]; then
   exit 1
 fi
 
+export GEOTMPDIR
+export GEODATADIR
+
 cd node_modules/geoip-lite && npm run-script updatedb license_key=$MAXMIND_LICENSE_KEY
 
 cd $STARDIR
