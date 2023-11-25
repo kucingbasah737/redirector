@@ -1,6 +1,6 @@
 {
   "name": "redirector",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simple redirector service",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/kucingbasah737/redirector#readme",
   "devDependencies": {
+    "auto-changelog": "^2.4.0",
     "db-migrate": "^0.11.14",
     "db-migrate-mysql": "^2.3.2",
     "eslint": "^8.54.0",
