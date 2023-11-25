@@ -10,6 +10,9 @@ const { hideBin } = require('yargs/helpers');
 // const logger = require('./lib/logger');
 const sdNotify = require('./lib/sd-notify');
 
+const insertTarget = require('./lib/cmd/insert-target');
+const insertHostname = require('./lib/cmd/insert-hostname');
+
 const runWebServer = async () => {
   // eslint-disable-next-line global-require
   const webserver = require('./lib/webserver');
@@ -61,53 +64,11 @@ const updatePasswordCmd = async () => {
   process.exit(0);
 };
 
-const insertTargetCmd = async () => {
-  // eslint-disable-next-line global-require
-  const insertTarget = require('./lib/insert-target');
-
-  prompt.start();
-  const promptResult = await prompt.get([
-    {
-      name: 'email',
-      message: 'User email',
-      required: true,
-    },
-    {
-      name: 'hostname',
-      message: 'Hostname',
-      required: true,
-    },
-    {
-      name: 'path',
-      message: 'Path',
-      required: true,
-    },
-    {
-      name: 'targetUrl',
-      message: 'Redirect to',
-      required: true,
-    },
-  ]);
-
-  try {
-    const result = await insertTarget(
-      null,
-      promptResult.email,
-      promptResult.hostname,
-      promptResult.path,
-      promptResult.targetUrl,
-    );
-    console.log(JSON.stringify(result, null, 2));
-  } catch (e) {
-    console.warn('Exception');
-  }
-  process.exit(0);
-};
-
 // eslint-disable-next-line no-unused-vars
 const { argv } = yargs(hideBin(process.argv))
   .command('update-password', 'update user password', () => {}, updatePasswordCmd)
-  .command('insert-target', 'insert new target', () => {}, insertTargetCmd)
+  .command('insert-target', 'insert a new target', () => {}, insertTarget)
+  .command('insert-hostname', 'insert a new hostname', () => {}, insertHostname)
   .command('serve', 'serve the world', () => {}, runWebServer)
   .demandCommand()
   .strict();
