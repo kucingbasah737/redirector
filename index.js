@@ -12,6 +12,7 @@ const sdNotify = require('./lib/sd-notify');
 
 const insertTarget = require('./lib/cmd/insert-target');
 const insertHostname = require('./lib/cmd/insert-hostname');
+const hostnameList = require('./lib/cmd/hostname-list');
 
 const runWebServer = async () => {
   // eslint-disable-next-line global-require
@@ -69,6 +70,7 @@ const { argv } = yargs(hideBin(process.argv))
   .command('update-password', 'update user password', () => {}, updatePasswordCmd)
   .command('insert-target', 'insert a new target', () => {}, insertTarget)
   .command('insert-hostname', 'insert a new hostname', () => {}, insertHostname)
+  .command('hostname-list', 'hostname list', () => {}, hostnameList)
   .command('serve', 'serve the world', () => {}, runWebServer)
   .demandCommand()
   .strict();
