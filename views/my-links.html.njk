@@ -2,23 +2,27 @@
 
 {% block content %}
 <ul>
+  {% for link in links %}
+  <li>
+    <a href="{{ basePath }}/view/{{ link.uuid }}"><strong>https://{{ link.hostname}}/{{ link.name }}</strong></a>
+    
+    will be redirected to 
 
-{% for link in links %}
-<li>
-  <a href="/dashboard/my-links/view/{{ link.name }}">https://{{ link.hostname}}/{{ link.name }}</a>
-  
-  will be redirected to 
+    <a href="{{ link.target_url }}"><strong>{{ link.target_url }}</strong></a>
+    
+    <br>
+    created at
+      {{ link.created | simpleDateTime }}
 
-  <a href="{{ link.target_url }}">{{ link.target_url }}</a>,
-  
-  created at
-    {{ link.created | simpleDateTime }}
-
-    {% if link.disabled %}
-    (DISABLED)
-    {% endif %}
-</li>
-{% endfor %}
-
+      {% if link.disabled %}
+      (DISABLED)
+      {% endif %}
+  </li>
+  {% endfor %}
 </ul>
+
+<a href="{{ basePath }}/add">
+Create a new link
+</a>
+
 {% endblock %}
