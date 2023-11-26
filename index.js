@@ -5,6 +5,8 @@
 
 process.chdir(__dirname);
 
+const fs = require('node:fs/promises');
+
 require('dotenv').config();
 const prompt = require('prompt');
 const yargs = require('yargs/yargs');
@@ -27,6 +29,9 @@ const runWebServer = async () => {
   if (process.env.SYSTEMD_NOTIFY) {
     sdNotify();
   }
+
+  // write pid file
+  await fs.writeFile('pid.txt', process.pid.toString());
 };
 
 const updatePasswordCmd = async () => {
