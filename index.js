@@ -19,6 +19,7 @@ const insertTarget = require('./lib/cmd/insert-target');
 const insertHostname = require('./lib/cmd/insert-hostname');
 const hostnameList = require('./lib/cmd/hostname-list');
 const targetList = require('./lib/cmd/target-list');
+const addUser = require('./lib/cmd/add-user');
 
 const runWebServer = async () => {
   // eslint-disable-next-line global-require
@@ -37,6 +38,7 @@ const runWebServer = async () => {
 
 // eslint-disable-next-line no-unused-vars
 const { argv } = yargs(hideBin(process.argv))
+  .command('add-user', 'add a new user', () => {}, addUser)
   .command('update-password', 'update user password', () => {}, updatePassword)
   .command('insert-target', 'insert a new target', () => {}, insertTarget)
   .command('insert-hostname', 'insert a new hostname', () => {}, insertHostname)
