@@ -3,6 +3,7 @@
 /* eslint-disable no-console */
 // const MODULE_NAME = 'MAIN';
 
+process.title = 'REDIRECTOR';
 process.chdir(__dirname);
 
 const fs = require('node:fs/promises');
