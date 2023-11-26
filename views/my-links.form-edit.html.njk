@@ -18,6 +18,17 @@
     <div id="linkNameHelp" class="form-text">Name of your link</div>
   </div>
 
+  {% if userList %}
+  <div class="mb-3">
+    <label for="inputLinkUserEmail" class="form-label">Owner</label>
+    <select name="linkUserEmail" id="inputLinkUserEmail" class="form-select" aria-label="Please select a user">
+      {% for user in userList %}
+      <option value="{{ user.email }}" {% if user.email === (target.user_email or currentUser.email) %}selected{% endif %}>{{ user.email }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  {% endif %}
+
   <div class="mb-3">
     <label for="inputLinkTarget" class="form-label">Link target</label>
     <input name="linkTarget" type="text" class="form-control" id="inputLinkTarget" placeholder="https://...." value="{{ target.target_url }}" required>
