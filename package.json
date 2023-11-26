@@ -52,6 +52,7 @@
     "sd-notify": "^2.8.0",
     "uniqid": "^5.4.0",
     "url-join": "^4.0.1",
+    "uuid": "^9.0.1",
     "winston": "^3.11.0",
     "winston-daily-rotate-file": "^4.7.1",
     "yargs": "^17.7.2"

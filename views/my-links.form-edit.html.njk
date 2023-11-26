@@ -1,0 +1,34 @@
+
+<!-- my-links.form-edit.html.njk -->
+<form method="POST" action="{{ editFormAction }}">
+  <input type="hidden" name="linkUuid" value="{{ target.uuid }}">
+
+  <div class="mb-3">
+    <label for="inputLinkHostname" class="form-label">Hostname</label>
+    <select name="linkHostname" class="form-select" aria-label="Please select a hostname">
+      {% for hostname in hostnameList %}
+      <option value="{{ hostname.name }}" {% if hostname.name === target.hostname %}selected{% endif %}>{{ hostname.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  
+  <div class="mb-3">
+    <label for="inputLinkName" class="form-label">Link name</label>
+    <input name="linkName" type="text" class="form-control" id="inputLinkName" aria-describedby="linkNameHellp" length=32 value="{{ target.name }}" required autofocus>
+    <div id="linkNameHelp" class="form-text">Name of your link</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="inputLinkTarget" class="form-label">Link target</label>
+    <input name="linkTarget" type="text" class="form-control" id="inputLinkTarget" placeholder="https://...." value="{{ target.target_url }}" required>
+  </div>
+
+  <div class="mb-3 form-check">
+    <input name="linkDisabled" type="checkbox" class="form-check-input" id="inputLinkDisabled" {% if target.disabled %}checked{% endif %}>
+    <label class="form-check-label" for="inputLinkDisabled">disabled</label>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="reset" class="btn btn-default">Reset</button>
+</form>
+<!-- end of my-links.form-edit.html.njk -->
