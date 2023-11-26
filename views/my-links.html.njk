@@ -20,7 +20,11 @@
       <li>
         created at {{ link.created | simpleDateTime }}
       </li>
-      
+
+      <li>
+        Hit count: {{ link.hit_count }}
+      </li>
+
       {% if link.disabled %}
       <li>this link has DISABLED</li>
       {% endif %}
@@ -37,7 +41,7 @@
 Create a new link
 </a>
 
-<canvas class="my-4 w-100" id="hitsPerDayChart" width="900" height="200"></canvas>
+<canvas class="my-4 w-100" id="hitsPerDayChart" width="900" height="150"></canvas>
 
 {% endblock %}
 

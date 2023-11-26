@@ -2,9 +2,10 @@
 
 {% block content %}
 
-<p>
-  <a href="https://{{ target.hostname }}/{{ target.name }}">https://{{ target.hostname }}/{{ target.name }}</a>
-</p>
+<ul>
+  <li>https://{{ target.hostname }}/{{ target.name }}</li>
+  <li>{{ target.hit_count }} hits</li>
+</ul>
 
 {% include "my-links.form-edit.html.njk" %}
 
@@ -12,7 +13,7 @@
 <a href="{{ basePath }}">Back to link list</a>
 </p>
 
-<canvas class="my-4 w-100" id="hitsPerDayChart" width="900" height="200"></canvas>
+<canvas class="my-4 w-100" id="hitsPerDayChart" width="900" height="150"></canvas>
 
 {% endblock %}
 
