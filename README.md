@@ -64,7 +64,7 @@ You can list registered hostnames by running:
 ```
 
 ## Running
-Make sure you have modified **.env" file to match your environtment.
+Make sure you have modified **.env** file to match your environtment.
 
 ### Dev
 ```
@@ -154,4 +154,4 @@ You can donate this project by sending monero (XMR) to this address:
 
   ![84Qosqtc46cC6gfgjhdNxpdT86VnsLVYoF9KTs53QdYMEPxsPbh2zJ4D8owj1M1aj2fiRsNpC8aZE4Xro5AtVkm3Jky4xGr](./public/img/redirector-xmr-donate.png)
 
-But remember, donation is not a must. It will just makes we more happy to keep develop and maintain this application.
+But remember, donation is not a must. It will just makes us more happy to keep develop and maintain this application.
