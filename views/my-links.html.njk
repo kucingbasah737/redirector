@@ -33,10 +33,10 @@
           <li>ts: {{ link.last_hit_ts | simpleDateTime }}</li>
           {% endif %}
 
-          <li>ip: {{ link.last_hit_ip | default('N/A') }}</li>
-          <li>country: {{ link.last_hit_country | default('N/A') }}</li>
-          <li>region: {{ link.last_hit_region | default('N/A') }}</li>
-          <li>city: {{ link.last_hit_city | default('N/A') }}</li>
+          <li>ip: {{ link.last_hit_ip | default('N/A', true) }}</li>
+          <li>country: {{ link.last_hit_country | default('N/A', true) }}</li>
+          <li>region: {{ link.last_hit_region | default('N/A', true) }}</li>
+          <li>city: {{ link.last_hit_city | default('N/A', true) }}</li>
         </ul>
       </li>
       {% endif %}
