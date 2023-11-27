@@ -94,6 +94,7 @@ And to add a new user:
 git pull
 npm ci
 npx db-migrate up
+kill `cat pid.txt`
 ```
 
 ## GEOIP-LITE Database
