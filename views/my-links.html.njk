@@ -1,11 +1,18 @@
 {% extends template %}
 
+{% block headEnd %}
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"
+/>
+{% endblock %}
+
 {% block content %}
 <ul>
   {% for link in links %}
   <li>
     <a href="{{ basePath }}/view/{{ link.uuid }}"><strong>https://{{ link.hostname}}/{{ link.name }}</strong></a>
-    
+
     <ul>
       <li>
         target: <a href="{{ link.target_url }}"><strong>{{ link.target_url }}</strong></a>
@@ -34,7 +41,14 @@
           {% endif %}
 
           <li>ip: {{ link.last_hit_ip | default('N/A', true) }}</li>
-          <li>country: {{ link.last_hit_country | default('N/A', true) }}</li>
+          <li>
+            country: {{ link.last_hit_country | default('N/A', true) }}
+
+            {% if link.last_hit_country %}
+            <span class="fi fi-{{ link.last_hit_country | lower }}"></span>
+            {% endif %}
+
+          </li>
           <li>region: {{ link.last_hit_region | default('N/A', true) }}</li>
           <li>city: {{ link.last_hit_city | default('N/A', true) }}</li>
         </ul>
@@ -45,10 +59,10 @@
       <li>this link has DISABLED</li>
       {% endif %}
     </ul>
-    
-      
 
-      
+
+
+
   </li>
   {% endfor %}
 </ul>
