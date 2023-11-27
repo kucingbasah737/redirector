@@ -26,7 +26,7 @@ const runWebServer = async () => {
   // eslint-disable-next-line global-require
   const webserver = require('./lib/webserver');
 
-  webserver();
+  await webserver();
 
   // logger.info(`${MODULE_NAME} 300582D4: Starting webserver`);
   if (process.env.SYSTEMD_NOTIFY) {
