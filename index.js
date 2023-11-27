@@ -12,14 +12,15 @@ require('dotenv').config();
 const yargs = require('yargs/yargs');
 const { hideBin } = require('yargs/helpers');
 // const logger = require('./lib/logger');
-const sdNotify = require('./lib/sd-notify');
 
+const sdNotify = require('./lib/sd-notify');
 const updatePassword = require('./lib/cmd/update-password');
 const insertTarget = require('./lib/cmd/insert-target');
 const insertHostname = require('./lib/cmd/insert-hostname');
 const hostnameList = require('./lib/cmd/hostname-list');
 const targetList = require('./lib/cmd/target-list');
 const addUser = require('./lib/cmd/add-user');
+const getAppVersion = require('./lib/get-app-version');
 
 const runWebServer = async () => {
   // eslint-disable-next-line global-require
@@ -36,6 +37,11 @@ const runWebServer = async () => {
   await fs.writeFile('pid.txt', process.pid.toString());
 };
 
+const showVersion = async () => {
+  await getAppVersion();
+  console.log(global.appVersion);
+};
+
 // eslint-disable-next-line no-unused-vars
 const { argv } = yargs(hideBin(process.argv))
   .command('add-user', 'add a new user', () => {}, addUser)
@@ -45,5 +51,6 @@ const { argv } = yargs(hideBin(process.argv))
   .command('hostname-list', 'hostname list', () => {}, hostnameList)
   .command('target-list', 'hostname list', () => {}, targetList)
   .command('serve', 'serve the world', () => {}, runWebServer)
+  .command('version', 'show app version', () => {}, showVersion)
   .demandCommand()
   .strict();
