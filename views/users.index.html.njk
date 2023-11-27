@@ -1,0 +1,30 @@
+{% extends template %}
+
+{% block content %}
+
+<ul>
+{% for user in users %}
+  <li>
+    <a href="{{ baseUrl }}/views/{{ user.email }}">
+      <strong>{{ user.email }}</strong>
+    </a>
+
+    &nbsp;&nbsp;
+    <span class="badge text-bg-{% if user.disabled %}danger{% else %}success{% endif %}">
+      {% if user.disabled %}DISABLED{% else %}ENABLED{% endif %}
+    </span>
+
+    <ul>
+      <li>member since {{ user.created | simpleDateTime }}</li>
+
+      {% if user.super %}
+      <li>is a super user</li>
+      {% endif %}
+
+      <li>has {{ user.target_count }} links</li>
+    </ul>
+  </li>
+{% endfor %}
+</ul>
+
+{% endblock %}
