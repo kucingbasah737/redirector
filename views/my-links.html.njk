@@ -25,11 +25,14 @@
         Hit count: {{ link.hit_count }}
       </li>
 
-      {% if link.hit_count %}
+      {% if link.hit_uuid %}
       <li>
         last visitor:
         <ul>
-          <li>ts: {{ link.last_hit_ts | default('N/A') }}</li>
+          {% if link.last_hit_ts %}
+          <li>ts: {{ link.last_hit_ts | simpleDateTime }}</li>
+          {% endif %}
+
           <li>ip: {{ link.last_hit_ip | default('N/A') }}</li>
           <li>country: {{ link.last_hit_country | default('N/A') }}</li>
           <li>region: {{ link.last_hit_region | default('N/A') }}</li>
