@@ -13,6 +13,7 @@
   - [Use reverse proxy](#use-reverse-proxy)
   - [Need Help?](#need-help)
   - [License](#license)
+  - [Changelog](#changelog)
   - [Donate](#donate)
 
 ## Requirements
@@ -141,6 +142,9 @@ on github.
 
 ## License
 This software licensed under MIT License. Feel free to use it.
+
+## Changelog
+See [CHANGELOG.md](./CHANGELOG.md) file.
 
 ## Donate
 You can use this software freely. You can also modified it. But of course we love donation.
