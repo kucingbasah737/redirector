@@ -1,0 +1,1 @@
+ALTER TABLE `hits` ADD IF NOT EXISTS `headers` JSON NULL DEFAULT NULL AFTER `referrer`;
