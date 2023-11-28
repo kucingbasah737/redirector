@@ -7,7 +7,7 @@
     <label for="inputLinkHostname" class="form-label">Hostname</label>
     <select name="linkHostname" class="form-select" aria-label="Please select a hostname">
       {% for hostname in hostnameList %}
-      <option value="{{ hostname.name }}" {% if hostname.name === target.hostname %}selected{% endif %}>{{ hostname.name }}</option>
+      <option value="{{ hostname.name }}" {% if hostname.name === (target.hostname or currentHostname) %}selected{% endif %}>{{ hostname.name }}</option>
       {% endfor %}
     </select>
   </div>
