@@ -15,6 +15,7 @@
   - [License](#license)
   - [Changelog](#changelog)
   - [Donate](#donate)
+  - [Domain Donation](#domain-donation)
 
 ## Requirements
 - nodejs (tested on v18 and v20, older nodejs might not work)
@@ -149,9 +150,15 @@ See [CHANGELOG.md](./CHANGELOG.md) file.
 
 ## Donate
 You can use this software freely. You can also modified it. But of course we love donation.
-You can donate this project by sending monero (XMR) to this address:
-- 84Qosqtc46cC6gfgjhdNxpdT86VnsLVYoF9KTs53QdYMEPxsPbh2zJ4D8owj1M1aj2fiRsNpC8aZE4Xro5AtVkm3Jky4xGr
-
-  ![84Qosqtc46cC6gfgjhdNxpdT86VnsLVYoF9KTs53QdYMEPxsPbh2zJ4D8owj1M1aj2fiRsNpC8aZE4Xro5AtVkm3Jky4xGr](./public/img/redirector-xmr-donate.png)
+You can donate this project by sending to these cryptocurrency addresses:
+- XMR (monero): 84Qosqtc46cC6gfgjhdNxpdT86VnsLVYoF9KTs53QdYMEPxsPbh2zJ4D8owj1M1aj2fiRsNpC8aZE4Xro5AtVkm3Jky4xGr
+  ([QR](./public/img/redirector-xmr-donate.png))
+- XNO (nano): nano_3kucingsf315nsym3whdtea86hy7ighetdyseuczue9p8j15pm8bx99beafa
+  ([QR](./public/img/redirector-xno-donate.png))
 
 But remember, donation is not a must. It will just makes us more happy to keep develop and maintain this application.
+
+## Domain Donation
+You can also donate your domain name to us, so we can serve your domain in our redirector service.
+Please post on github's [issue](https://github.com/kucingbasah737/redirector/issues)
+or [discussion](https://github.com/kucingbasah737/redirector/discussions).
