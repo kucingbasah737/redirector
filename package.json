@@ -18,7 +18,13 @@
   },
   "keywords": [
     "web",
-    "redirector"
+    "webapp",
+    "redirect",
+    "redirector",
+    "redirect-urls",
+    "url-shortener",
+    "frontend-web",
+    "http-server"
   ],
   "author": "Kucing Basah 737",
   "license": "MIT",

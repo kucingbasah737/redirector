@@ -1,6 +1,6 @@
-# REDIRECTOR - Simple but usable web redirect service
+# REDIRECTOR - Simple but usable web redirect (url shortener) service
 
-- [REDIRECTOR - Simple but usable web redirect service](#redirector---simple-but-usable-web-redirect-service)
+- [REDIRECTOR - Simple but usable web redirect (url shortener) service](#redirector---simple-but-usable-web-redirect-url-shortener-service)
   - [Requirements](#requirements)
   - [Installation](#installation)
   - [Configuration](#configuration)
