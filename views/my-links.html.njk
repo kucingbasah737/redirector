@@ -40,7 +40,28 @@
           <li>ts: {{ link.last_hit_ts | simpleDateTime }}</li>
           {% endif %}
 
-          <li>ip: {{ link.last_hit_ip | default('N/A', true) }}</li>
+          <li>
+            ip: {{ link.last_hit_ip | default('N/A', true) }}
+            
+            [
+              <a href="https://ipinfo.io/{{ link.last_hit_ip | convertToIPv4AgainIfItCan}}"
+                title="lookup this ip on IPinfo"
+              >ipinfo.io</a>
+            ]
+
+            [
+              <a href="https://www.whois.com/whois/{{ link.last_hit_ip | convertToIPv4AgainIfItCan }}"
+                title="lookup this on whois.com"
+              >whois.com</a>
+            ]
+
+            [
+              <a href="https://bgp.he.net/ip/{{ link.last_hit_ip | convertToIPv4AgainIfItCan }}"
+                title="lookup this on Hurricane Electric"  
+              >he</a>
+            ]
+          </li>
+
           <li>
             country: {{ link.last_hit_country | default('N/A', true) }}
 
