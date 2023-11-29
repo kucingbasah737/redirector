@@ -1,5 +1,5 @@
 
-<canvas class="my-4 w-100" id="hitsPerDayChart" width="900" height="100"></canvas>
+<canvas class="my-4 w-100" id="{{ visitChartName }}" width="900" height="150"></canvas>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.2/dist/chart.umd.js" integrity="sha384-eI7PSr3L1XLISH8JdDII5YN/njoSsxfbrkCTnJrzXt+ENP5MOVBxD+l6sEG4zoLp" crossorigin="anonymous"></script>
 
@@ -10,20 +10,20 @@
   'use strict'
 
   // Graphs
-  const ctx = document.getElementById('hitsPerDayChart')
+  const ctx{{ visitChartName }} = document.getElementById('{{ visitChartName }}')
   // eslint-disable-next-line no-unused-vars
-  const myChart = new Chart(ctx, {
+  const myChart = new Chart(ctx{{ visitChartName }}, {
     type: 'line',
     data: {
       labels: [
-        {% for item in hitsPerDay %}
-        '{{ item.date | simpleDate }}',
+        {% for item in visitChartData %}
+        '{{ item.label }}',
         {% endfor %}
       ],
       datasets: [{
         data: [
-          {% for item in hitsPerDay %}
-          {{ item.hitCount }},
+          {% for item in visitChartData %}
+          {{ item.value }},
           {% endfor %}
         ],
         lineTension: 0,

@@ -86,6 +86,13 @@
 Create a new link
 </a>
 
+{% set visitChartName = "hitsPerDayChart" %}
+{% set visitChartData = hitsPerDay %}
 {% include "my-links.line-chart-visits.html.njk" %}
+
+{# {% set visitChartName = "hitsPerHourChart" %}
+{% set visitChartData = hitsPerHour %}
+{% include "my-links.line-chart-visits.html.njk" %} #}
+
 
 {% endblock %}
