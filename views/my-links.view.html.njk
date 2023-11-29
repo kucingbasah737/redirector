@@ -13,6 +13,13 @@
 <a href="{{ basePath }}">Back to link list</a>
 </p>
 
+{% set visitChartName = "hitsPerDayChart" %}
+{% set visitChartData = hitsPerDay %}
 {% include "my-links.line-chart-visits.html.njk" %}
+
+{% set visitChartName = "hitsPerHourChart" %}
+{% set visitChartData = hitsPerHour %}
+{% include "my-links.line-chart-visits.html.njk" %}
+
 
 {% endblock %}

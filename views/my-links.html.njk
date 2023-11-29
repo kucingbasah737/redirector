@@ -90,9 +90,9 @@ Create a new link
 {% set visitChartData = hitsPerDay %}
 {% include "my-links.line-chart-visits.html.njk" %}
 
-{# {% set visitChartName = "hitsPerHourChart" %}
+{% set visitChartName = "hitsPerHourChart" %}
 {% set visitChartData = hitsPerHour %}
-{% include "my-links.line-chart-visits.html.njk" %} #}
+{% include "my-links.line-chart-visits.html.njk" %}
 
 
 {% endblock %}
