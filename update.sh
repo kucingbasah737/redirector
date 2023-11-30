@@ -9,6 +9,8 @@ fi
 
 OLDDEP="`jq -c .dependencies package.json`"
 
+git fetch
+
 echo "** Pulling from repo"
 git pull
 
@@ -20,3 +22,6 @@ else
   echo "** Need to run npm ci"
   npm ci
 fi
+
+echo "** Killing old process"
+kill `cat pid.txt`
