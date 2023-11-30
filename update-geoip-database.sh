@@ -1,13 +1,22 @@
 #!/bin/bash
 set -x
 
-source .env
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+cd $SCRIPT_DIR
 
-STARTDIR=`pwd`
+source .env
 
 if [ -z "MAXMIND_LICENSE_KEY" ]; then
   echo Please set MAXMIND_LICENSE_KEY environtment variable
   exit 1
+fi
+
+if [ -z "$GEOTMPDIR" ]; then
+  GEOTMPDIR=${SCRIPT_DIR}/data/geoip-lite/tmp
+fi
+
+if [ -z "$GEODATADIR" ]; then
+  GEODATADIR=${SCRIPT_DIR}/data/geoip-lite/data
 fi
 
 if [ ! -z "$GEOTMPDIR" ]; then
