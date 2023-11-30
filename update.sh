@@ -31,5 +31,9 @@ else
   npm ci
 fi
 
+if [ -f ".env" ]; then
+  npx db-migrate up
+fi
+
 echo "** Killing old process"
 kill `cat pid.txt`
