@@ -103,8 +103,6 @@ To update GeoLite database, please set MAXMIND_LICENSE_KEY on .env file, and the
 ./update-geoip-database.sh
 ```
 
-You also might need to set **GEOTMPDIR** and **GEODATADIR** on .env file to avoid GeoLite database update replaced by any "npm ci".
-
 ## Use reverse proxy
 Set "WEB_TRUST_PROXY=" on your **.env** file. Example:
 
