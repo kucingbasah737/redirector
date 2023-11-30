@@ -7,6 +7,7 @@ then
   exit 1
 fi
 
+echo "** Fetch remote repo"
 git fetch
 
 GITSTATUS=`git status`
