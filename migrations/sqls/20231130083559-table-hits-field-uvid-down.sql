@@ -1,0 +1,5 @@
+ALTER TABLE `hits` DROP IF EXISTS `uvid`;
+
+ALTER TABLE `hits` DROP INDEX IF EXISTS `uvid`;
+
+ALTER TABLE `hits` DROP INDEX IF EXISTS `target_uvid`;
