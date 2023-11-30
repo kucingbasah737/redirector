@@ -11,6 +11,14 @@ OLDDEP="`jq -c .dependencies package.json`"
 
 git fetch
 
+GITSATUS=`git status`
+if [ "$GITSATUS" =~ "Your branch is behind" ]; then
+  echo "** Need to pull the update"
+else
+  echo "No need to pull the update"
+  exit
+fi;
+
 echo "** Pulling from repo"
 git pull
 
