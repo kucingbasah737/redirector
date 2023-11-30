@@ -9,8 +9,8 @@ fi
 
 git fetch
 
-GITSATUS=`git status`
-if [ "$GITSATUS" =~ "Your branch is behind" ]; then
+GITSTATUS=`git status`
+if [[ "$GITSTATUS" =~ "Your branch is behind" ]]; then
   echo "** Need to pull the update"
 else
   echo "No need to pull the update"
