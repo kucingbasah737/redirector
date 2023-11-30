@@ -7,8 +7,6 @@ then
   exit 1
 fi
 
-OLDDEP="`jq -c .dependencies package.json`"
-
 git fetch
 
 GITSATUS=`git status`
@@ -18,6 +16,8 @@ else
   echo "No need to pull the update"
   exit
 fi;
+
+OLDDEP="`jq -c .dependencies package.json`"
 
 echo "** Pulling from repo"
 git pull
