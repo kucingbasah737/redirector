@@ -92,10 +92,7 @@ And to add a new user:
 
 ## Update
 ```
-git pull
-npm ci
-npx db-migrate up
-kill `cat pid.txt`
+npm run update
 ```
 
 ## GEOIP-LITE Database
