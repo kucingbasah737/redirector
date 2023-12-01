@@ -26,6 +26,7 @@
 
       <li>
         created at {{ link.created | simpleDateTime }}
+        ({{ link.created | relativeFromNow }})
       </li>
 
       <li>
@@ -37,7 +38,7 @@
         last visitor:
         <ul>
           {% if link.last_hit_ts %}
-          <li>ts: {{ link.last_hit_ts | simpleDateTime }}</li>
+          <li>ts: {{ link.last_hit_ts | simpleDateTime }} ({{ link.last_hit_ts | relativeFromNow }})</li>
           {% endif %}
 
           <li>
