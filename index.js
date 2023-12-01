@@ -11,7 +11,6 @@ const fs = require('node:fs/promises');
 require('dotenv').config();
 const yargs = require('yargs/yargs');
 const { hideBin } = require('yargs/helpers');
-// const logger = require('./lib/logger');
 
 const sdNotify = require('./lib/sd-notify');
 const updatePassword = require('./lib/cmd/update-password');
@@ -20,6 +19,7 @@ const insertHostname = require('./lib/cmd/insert-hostname');
 const hostnameList = require('./lib/cmd/hostname-list');
 const targetList = require('./lib/cmd/target-list');
 const addUser = require('./lib/cmd/add-user');
+const updateAllGeoIps = require('./lib/cmd/update-all-geo-ips');
 const getAppVersion = require('./lib/get-app-version');
 
 const runWebServer = async () => {
@@ -50,6 +50,7 @@ const { argv } = yargs(hideBin(process.argv))
   .command('insert-hostname', 'insert a new hostname', () => {}, insertHostname)
   .command('hostname-list', 'hostname list', () => {}, hostnameList)
   .command('target-list', 'hostname list', () => {}, targetList)
+  .command('update-all-geo-ips', 'update all geo ips on database', () => {}, updateAllGeoIps)
   .command('serve', 'serve the world', () => {}, runWebServer)
   .command('version', 'show app version', () => {}, showVersion)
   .demandCommand()
