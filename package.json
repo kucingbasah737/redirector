@@ -10,7 +10,7 @@
     "start": "NODE_ENV=production node index.js serve",
     "dev": "LOG_LEVEL=debug nodemon index.js serve",
     "monitor-access": "tail -f  logs/access.json | jq '. | {xid: .xid, date: .localDate, url: .url, status: .status, ip: .remoteAddr, userAgent: .userAgent, referrer: .referrer, user: .loginedAs}'",
-    "download-cf-ips": "mkdir -v data; echo; echo Downloading CF ipv4 list; curl --output data/cf-ipv4.txt https://www.cloudflare.com/ips-v4/; echo >> data/cf-ipv4.txt; echo; echo Downloading CF ipv6 list; curl --output data/cf-ipv6.txt https://www.cloudflare.com/ips-v6/; echo >> data/cf-ipv6.txt",
+    "download-cf-ips": "bash update-cloudflare-ip-list.sh",
     "update": "bash update.sh"
   },
   "repository": {
