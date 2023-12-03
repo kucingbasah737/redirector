@@ -15,7 +15,10 @@
   - [License](#license)
   - [Changelog](#changelog)
   - [Donate](#donate)
-  - [Domain Donation](#domain-donation)
+    - [Cryptocurrency Donation](#cryptocurrency-donation)
+      - [XMR (monero)](#xmr-monero)
+      - [XNO (nano)](#xno-nano)
+    - [Domain Donation](#domain-donation)
 
 ## Requirements
 - nodejs (tested on v18 and v20, older nodejs might not work)
@@ -144,16 +147,25 @@ This software licensed under MIT License. Feel free to use it.
 See [CHANGELOG.md](./CHANGELOG.md) file.
 
 ## Donate
-You can use this software freely. You can also modified it. But of course we love donation.
+You can use this software freely. You can also modified it freely. Free as a beer and free as a speech.
+But of course we love donation. But remember, donation is not a must.
+
+It will just makes us happier to keep develop and maintain this application.
+
+### Cryptocurrency Donation
 You can donate this project by sending to these cryptocurrency addresses:
-- XMR (monero): 84Qosqtc46cC6gfgjhdNxpdT86VnsLVYoF9KTs53QdYMEPxsPbh2zJ4D8owj1M1aj2fiRsNpC8aZE4Xro5AtVkm3Jky4xGr
-  ([QR](./public/img/redirector-xmr-donate.png))
-- XNO (nano): nano_3kucingsf315nsym3whdtea86hy7ighetdyseuczue9p8j15pm8bx99beafa
-  ([QR](./public/img/redirector-xno-donate.png))
 
-But remember, donation is not a must. It will just makes us more happy to keep develop and maintain this application.
+#### XMR (monero)
+monero:47kucingmMofTNakN2uhH4YG3m9fwK4bGQNEnRANf26Ei4DATqWj1B2bADCtZdYQmEREcz4yVWEkMgMQdffLNsu8Fh4rhkc
 
-## Domain Donation
+![XMR donation for Kucing Basah 737](public/img/redirector-xmr-donate.png)
+
+#### XNO (nano)  
+nano:nano_3kucingsf315nsym3whdtea86hy7ighetdyseuczue9p8j15pm8bx99beafa
+
+![XNO donation for Kucing Basah 737](public/img/redirector-xno-donate.png)
+
+### Domain Donation
 You can also donate your domain name to us, so we can serve your domain in our redirector service.
 Please post on github's [issue](https://github.com/kucingbasah737/redirector/issues)
 or [discussion](https://github.com/kucingbasah737/redirector/discussions).
