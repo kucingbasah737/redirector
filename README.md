@@ -157,14 +157,19 @@ You can donate this project by sending to these cryptocurrency addresses
 (thanks for [qrcodemonkey](https://www.qrcode-monkey.com/) for generating QRs):
 
 #### XMR (monero)
-monero:47kucingmMofTNakN2uhH4YG3m9fwK4bGQNEnRANf26Ei4DATqWj1B2bADCtZdYQmEREcz4yVWEkMgMQdffLNsu8Fh4rhkc
-
 ![XMR donation for Kucing Basah 737](public/img/redirector-xmr-donate.png)
 
-#### XNO (nano)  
-nano:nano_3kucingsf315nsym3whdtea86hy7ighetdyseuczue9p8j15pm8bx99beafa
+```
+47kucingmMofTNakN2uhH4YG3m9fwK4bGQNEnRANf26Ei4DATqWj1B2bADCtZdYQmEREcz4yVWEkMgMQdffLNsu8Fh4rhkc
+```
 
+
+#### XNO (nano)
 ![XNO donation for Kucing Basah 737](public/img/redirector-xno-donate.png)
+
+```
+nano_3kucingsf315nsym3whdtea86hy7ighetdyseuczue9p8j15pm8bx99beafa
+```
 
 ### Domain Donation
 You can also donate your domain name to us, so we can serve your domain in our redirector service.
