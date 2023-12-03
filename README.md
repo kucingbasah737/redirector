@@ -153,7 +153,8 @@ But of course we love donation. But remember, donation is not a must.
 It will just makes us happier to keep develop and maintain this application.
 
 ### Cryptocurrency Donation
-You can donate this project by sending to these cryptocurrency addresses:
+You can donate this project by sending to these cryptocurrency addresses
+(thanks for [qrcodemonkey](https://www.qrcode-monkey.com/) for generating QRs):
 
 #### XMR (monero)
 monero:47kucingmMofTNakN2uhH4YG3m9fwK4bGQNEnRANf26Ei4DATqWj1B2bADCtZdYQmEREcz4yVWEkMgMQdffLNsu8Fh4rhkc
