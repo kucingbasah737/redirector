@@ -61,7 +61,7 @@
     "express-rate-limit": "^7.1.4",
     "express-session": "^1.17.3",
     "geoip-lite": "^1.4.8",
-    "hostname-natural-order": "^1.0.2",
+    "hostname-natural-order": "^1.0.4",
     "ip-toolkit": "^1.0.10",
     "morgan": "^1.10.0",
     "morgan-json": "^1.1.0",
