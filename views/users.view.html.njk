@@ -37,6 +37,7 @@
 
       <dt class="{{ dtClass }}">Links:</dt>
       <dd class="{{ ddClass }}">
+        {% if links.length %}
         <ul>
         {% for link in links %}
           <li>
@@ -46,6 +47,9 @@
           </li>
         {% endfor %}
         </ul>
+        {% else %}
+        doesn't have any link yet
+        {% endif %}
       </dd>
     </dl>
 
