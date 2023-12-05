@@ -1,0 +1,90 @@
+{% extends template %}
+
+{% block content %}
+{% include "users.modal.change-password.html.njk" %}
+
+<div class="card">
+  <div class="card-body">
+
+    <pre>{{ user | dump(2) | safe }}</pre>
+
+    <dl class="row">
+
+      {% set dtClass = "col-sm-2" %}
+      {% set ddClass = "col-sm-10" %}
+
+      <dt class="{{ dtClass }}">Email:</dt>
+      <dd class="{{ ddClass }}">
+        {{ user.email }}
+
+        {% if currentUser.super %}
+          &nbsp;
+          {% if user.super %}
+          <span class="badge text-bg-danger">SUPER</span>
+          {% else %}
+          <span class="badge text-bg-success">REGULAR</span>
+          {% endif %}
+
+          {% if user.disabled %}
+          <span class="badge text-bg-danger">DISABLED</span>
+          {% else %}
+          <span class="badge text-bg-success">ENABLED</span>
+          {% endif %}
+        {% endif %}
+      </dd>
+
+      <dt class="{{ dtClass }}">Member since:</dt>
+      <dd class="{{ ddClass }}">{{ user.created }}</dd>
+
+      <dt class="{{ dtClass }}">Links:</dt>
+      <dd class="{{ ddClass }}">
+        <ul>
+        {% for link in links %}
+          <li>
+            <a href="/dashboard/my-links/view/{{ link.uuid }}">
+            {{ link | composeFullTargetUrl }}
+            </a>
+          </li>
+        {% endfor %}
+        </ul>
+      </dd>
+    </dl>
+
+    {# change password button #}
+    {% if currentUser.email === user.email %}
+    {% set changePasswordButtonLabel = 'Change my password' %}
+    {% else %}
+    {% set changePasswordButtonLabel = "Change this user's password" %}
+    {% endif %}
+
+    <button
+      type="button"
+      class="btn btn-secondary"
+      data-bs-toggle="modal" data-bs-target="#changePasswordModal" data-bs-whatever="{{ changePasswordButtonLabel }}"
+    >
+      {{ changePasswordButtonLabel }}
+    </button>
+
+    <script>
+      const changePasswordModal = document.getElementById('changePasswordModal');
+
+      if (changePasswordModal) {
+        changePasswordModal.addEventListener('show.bs.modal', (event) => {
+          // Button that triggered the modal
+          const button = event.relatedTarget
+          // Extract info from data-bs-* attributes
+          const title = button.getAttribute('data-bs-whatever');
+          // If necessary, you could initiate an Ajax request here
+          // and then do the updating in a callback.
+
+          // Update the modal's content.
+          const modalTitle = changePasswordModal.querySelector('.modal-title');
+          if (modalTitle) {
+            modalTitle.textContent = title;
+          };
+        })
+      }
+    </script>
+  </div>
+</div>
+{% endblock %}
