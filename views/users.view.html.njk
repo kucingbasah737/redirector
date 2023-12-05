@@ -50,7 +50,16 @@
       {% if whitelistedHostnames and whitelistedHostnames.length %}
         <ul>
         {% for whitelistedHostname in whitelistedHostnames %}
-          <li>{{ whitelistedHostname }}</li>
+          <li>
+            {{ whitelistedHostname }}
+
+            <a
+              href="{{ baseUrl }}/remove-whitelist/{{ user.email }}/{{ whitelistedHostname }}"
+              class="btn btn-danger" role="button"
+              style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+              onclick="return confirm('Do you want to delete &quot;{{ whitelistedHostname  }}&quot;?');"
+            >remove</a>
+          </li>
         {% endfor %}
         </ul>
       {% endif %}
