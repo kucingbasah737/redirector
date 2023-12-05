@@ -5,8 +5,7 @@
 
 <div class="card">
   <div class="card-body">
-
-    <pre>{{ user | dump(2) | safe }}</pre>
+    {# <pre>{{ user | dump(2) | safe }}</pre> #}
 
     <dl class="row">
 
@@ -41,9 +40,9 @@
         <ul>
         {% for link in links %}
           <li>
-            <a href="/dashboard/my-links/view/{{ link.uuid }}">
-            {{ link | composeFullTargetUrl }}
-            </a>
+            <a href="/dashboard/my-links/view/{{ link.uuid }}">{{ link | composeFullTargetUrl }}</a>
+
+            ({{ link.target_url }})
           </li>
         {% endfor %}
         </ul>
