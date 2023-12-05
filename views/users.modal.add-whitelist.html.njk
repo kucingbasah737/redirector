@@ -1,0 +1,34 @@
+<div class="modal fade" id="addWhitelistModal" tabindex="1" aria-labelledby="addWhitelistModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form method="POST"
+        id="add-whitelist"
+        action="{{ baseUrl}}/add-whitelist"
+      >
+
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="changePasswordModalLabel">Add whitelist</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input name="email" id="addWhitelistEmail" value="{{ user.email }}" style="display: none;">
+
+        <div class="mb-3">
+          <label for="addWhitelistHostname" class="col-form-label">Hostname:</label>
+          <select name="hostname" id="addWhitelistHostname" class="form-select" aria-label="Please select a hostname" required>
+            <option></option>
+            {% for hostname in allHostnames %}
+            <option value="{{ hostname }}">{{ hostname }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Add</button>
+      </div>
+
+      </form>
+    </div>
+  </div>
+</div>

@@ -3,6 +3,10 @@
 {% block content %}
 {% include "users.modal.change-password.html.njk" %}
 
+{% if currentUser.super %}
+{% include "users.modal.add-whitelist.html.njk" %}
+{% endif %}
+
 <div class="card">
   <div class="card-body">
     {# <pre>{{ user | dump(2) | safe }}</pre> #}
@@ -29,11 +33,38 @@
           {% else %}
           <span class="badge text-bg-success">ENABLED</span>
           {% endif %}
+
+          {% if user.only_allowed %}
+          <span class="badge text-bg-danger">ONLY ALLOWED HOSTNAMES</span>
+          {% else %}
+          {% endif %}
         {% endif %}
       </dd>
 
       <dt class="{{ dtClass }}">Member since:</dt>
       <dd class="{{ ddClass }}">{{ user.created }}</dd>
+
+      {% if currentUser.super %}
+      <dt class="{{ dtClass }}">Whitelisted hostnames:</dt>
+      <dd class="{{ ddClass }}">
+      {% if whitelistedHostnames and whitelistedHostnames.length %}
+        <ul>
+        {% for whitelistedHostname in whitelistedHostnames %}
+          <li>{{ whitelistedHostname }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+
+        <button
+          type="button"
+          class="btn btn-primary btn-sm"
+          data-bs-toggle="modal" data-bs-target="#addWhitelistModal"
+        >
+          Add whitelist
+        </button>
+
+      </dd>
+      {% endif %}
 
       <dt class="{{ dtClass }}">Links:</dt>
       <dd class="{{ ddClass }}">
