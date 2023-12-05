@@ -1,0 +1,3 @@
+ALTER TABLE `users`
+  ADD IF NOT EXISTS `only_allowed` TINYINT(1) NOT NULL DEFAULT '0' AFTER `super`
+;
