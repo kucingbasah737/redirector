@@ -16,7 +16,7 @@
         <div class="mb-3">
           <label for="addWhitelistHostname" class="col-form-label">Hostname:</label>
           <select name="hostname" id="addWhitelistHostname" class="form-select" aria-label="Please select a hostname" required>
-            <option></option>
+            <option value="">please select a hostname</option>
             {% for hostname in allHostnames %}
             <option value="{{ hostname }}">{{ hostname }}</option>
             {% endfor %}
