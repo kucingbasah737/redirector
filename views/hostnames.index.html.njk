@@ -1,0 +1,32 @@
+{% extends template %}
+
+{% block content %}
+{% include "hostnames.modal.add.html.njk" %}
+
+<ul class="list-group">
+  {% for hostname in hostnames %}
+  <li class="list-group-item">
+    <div class="fw-bold">
+      <i class="bi-globe-americas"></i>
+      <a class="list-group-item-action" href="{{ baseUrl }}/view/{{ hostname.name }}">{{ hostname.name }}</a>
+
+      {% if hostname.exclusive %}
+      <span class="badge text-bg-danger">exclusive</span>
+      {% endif %}
+    </div>
+
+    link count: {{ hostname.target_count }}
+  </li>
+  {% endfor %}
+
+  <li class="list-group-item">
+
+    <!-- button to create new hostname -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addHostnameModal">
+      <i class="bi-plus-circle"></i> Add
+    </button>
+
+  </li>
+</ul>
+
+{% endblock %}

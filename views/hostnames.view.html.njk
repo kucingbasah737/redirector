@@ -1,0 +1,31 @@
+{% extends template %}
+
+{% block content %}
+
+<div class="card">
+  <div class="card-body">
+    <dl class="row">
+      {% set dtClass = "col-sm-2" %}
+      {% set ddClass = "col-sm-10" %}
+
+      <dt class="{{ dtClass }}">Serve since:</dt>
+      <dd class="{{ ddClass }}">{{ hostname.created }}</dd>
+
+      <dt class="{{ dtClass }}">Target count:</dt>
+      <dd class="{{ ddClass }}">{{ hostname.target_count }}</dd>
+
+      <dt class="{{ dtClass }}">Public:</dt>
+      <dd class="{{ ddClass }}">
+        {% if hostname.exclusive %}
+        <span class="badge text-bg-danger">exclusive</span>
+        <br>This is an exclusive host. Only whitelisted users can use it.
+        {% else %}
+        <span class="badge text-bg-danger">public</span>
+        <br>Anyone can access this hostname
+        {% endif %}
+      </dd>
+    </dl>
+  </div>
+</div>
+
+{% endblock %}
