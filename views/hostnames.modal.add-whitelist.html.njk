@@ -1,0 +1,41 @@
+<div class="modal fade" id="addUserWhitelistModal" tabindex="1" aria-labelledby="addUserWhitelistModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form method="POST"
+        id="add-whitelist-form"
+        action="{{ baseUrl}}/add-whitelist"
+      >
+
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="addUserWhitelistModalLabel">Whitelist a user</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="inputHostnameToAdd" class="col-form-label">Hostname:</label>
+            <input name="hostname" type="text" class="form-control" id="inputHostnameToAdd" value="{{ hostname.name }}" autocomplete="off" readonly>
+          </div>
+
+          <div class="mb-3">
+            <label for="inputUserToAdd" class="col-form-label">Hostname:</label>
+            <select name="email" id="inputUserToAdd" class="form-select" aria-label="Please select a user" required>
+              <option value="">please select a user</option>
+
+              {% for user in users %}<option value="{{ user.email }}">
+                {{ user.email }}{% if user.disabled %} (disabled) {% endif %}
+              </option>{% endfor %}
+
+            </select>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

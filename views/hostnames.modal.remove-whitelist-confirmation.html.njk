@@ -1,0 +1,34 @@
+<div class="modal fade" id="removeUserFromWhitelistConfirmationModal" tabindex="1" aria-labelledby="removeUserFromWhitelistConfirmationModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form method="POST"
+        id="remove-whitelist"
+        action="{{ baseUrl}}/remove-whitelist"
+      >
+
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="removeUserFromWhitelistConfirmationModalLabel">Whitelist removal confirmation</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="inputHostnameToRemove" class="col-form-label">Hostname:</label>
+            <input name="hostname" type="text" class="form-control" id="inputHostnameToRemove" value="{{ hostname.name }}" autocomplete="off" readonly>
+          </div>
+
+          <div class="mb-3">
+            <label for="inputUserToRemove" class="col-form-label">User:</label>
+            <input name="email" type="text" class="form-control" id="inputUserToRemove" value="unknown" autocomplete="off" readonly>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-danger">I Confirm and please remove it!</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

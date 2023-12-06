@@ -2,6 +2,9 @@
 
 {% block content %}
 
+{% include "hostnames.modal.remove-whitelist-confirmation.html.njk" %}
+{% include "hostnames.modal.add-whitelist.html.njk" %}
+
 <div class="card">
   <div class="card-body">
     <dl class="row">
@@ -21,11 +24,54 @@
         <br>This is an exclusive host. Only whitelisted users can use it.
         {% else %}
         <span class="badge text-bg-danger">public</span>
-        <br>Anyone can access this hostname
+        <br>Anyone can access this hostname with or without whitelisted.
         {% endif %}
+      </dd>
+
+      <dt class="{{ dtClass }}">Whitelisted users:</dt>
+      <dd class="{{ ddClass }}">
+        <ul class="list-group">
+
+          {% for userEmail in whitelistedUsers %}
+          <li class="list-group-item">
+            <a href="#" role="button" data-bs-toggle="modal" data-bs-target="#removeUserFromWhitelistConfirmationModal" data-bs-email="{{ userEmail }}">
+              <i class="bi-trash"></i>
+            </a>
+
+            {{ userEmail }}
+          </li>
+          {% endfor %}
+
+          <li class="list-group-item">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUserWhitelistModal">
+              <i class="bi-plus-circle"></i> Add
+            </button>
+          </li>
+        </ul>
       </dd>
     </dl>
   </div>
 </div>
+
+<script>
+const removeUserFromWhitelistConfirmationModal = document.getElementById('removeUserFromWhitelistConfirmationModal')
+if (removeUserFromWhitelistConfirmationModal) {
+  removeUserFromWhitelistConfirmationModal.addEventListener('show.bs.modal', event => {
+    // Button that triggered the modal
+    const button = event.relatedTarget
+    // Extract info from data-bs-* attributes
+    const userEmail = button.getAttribute('data-bs-email');
+    // If necessary, you could initiate an Ajax request here
+    // and then do the updating in a callback.
+
+    // Update the modal's content.
+    const modalTitle = removeUserFromWhitelistConfirmationModal.querySelector('.modal-title');
+    const modalBodyInput = removeUserFromWhitelistConfirmationModal.querySelector('.modal-body input#inputUserToRemove');
+
+    {# modalTitle.textContent = `New message to ${recipient}` #}
+    modalBodyInput.value = userEmail;
+  });
+}
+</script>
 
 {% endblock %}
