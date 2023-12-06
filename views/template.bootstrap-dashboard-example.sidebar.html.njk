@@ -9,8 +9,10 @@
           <ul class="nav flex-column">
             {% for item in navbar %}
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2 {% if activePath === item.link %}active{% endif %}" aria-current="page" href="{{ item.link }}">
-                <svg class="bi"><use xlink:href="{{ item.xlinkHref }}"/></svg>
+              <a class="nav-link d-flex align-items-center gap-2{% if activePath === item.link %} active{% endif %}"
+                {% if activePath === item.link %}aria-current="page" {% endif %}href="{{ item.link }}"
+              >
+                <i class="bi-{{ item.icon }}"></i>
                 {{ item.name }}
               </a>
             </li>
@@ -25,8 +27,10 @@
           <ul class="nav flex-column mb-auto">
             {% for item in navbarAdmin %}
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2 {% if activePath === item.link %}active{% endif %}" aria-current="page" href="{{ item.link }}">
-                <svg class="bi"><use xlink:href="{{ item.xlinkHref }}"/></svg>
+              <a class="nav-link d-flex align-items-center gap-2{% if activePath === item.link %} active{% endif %}"
+                {% if activePath === item.link %}aria-current="page" {% endif %}href="{{ item.link }}"
+              >
+                <i class="bi-{{ item.icon }}"></i>
                 {{ item.name }}
               </a>
             </li>
@@ -84,7 +88,7 @@
 
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="/login/out">
-                <svg class="bi"><use xlink:href="#door-closed"/></svg>
+                <i class="bi-door-closed"></i>
                 Sign out from "{{ currentUser.email }}"
               </a>
             </li>
