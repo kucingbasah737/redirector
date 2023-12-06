@@ -10,7 +10,7 @@
     "start": "NODE_ENV=production node index.js serve",
     "dev": "LOG_LEVEL=debug nodemon index.js serve",
     "monitor-access": "tail -F logs/access.json | jq '. | {xid: .xid, date: .localDate, url: .url, status: .status, ip: .remoteAddr, userAgent: .userAgent, referrer: .referrer, user: .loginedAs}'",
-    "monitor-guest-access": "tail -F logs/access.json | jq '. | select( .loginedAs == \"-\") | {xid: .xid, date: .localDate, url: .url, status: .status, ip: .remoteAddr, userAgent: .userAgent, referrer: .referrer}'",
+    "monitor-redirect": "tail -F logs/access.json | jq '. | select( .status == \"301\") | {xid: .xid, date: .localDate, url: .url, status: .status, ip: .remoteAddr, userAgent: .userAgent, referrer: .referrer}'",
     "download-cf-ips": "bash update-cloudflare-ip-list.sh",
     "update": "bash update.sh"
   },
