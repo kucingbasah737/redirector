@@ -30,9 +30,11 @@
       </li>
 
       <li>
-        hit count: {{ link.hit_count }}
+        total hit count {{ link.hit_count }}
         
-        (today: unknown)
+        <span id="todayHitCount-{{ link.uuid }}"></span>
+
+        <span id="thisHourHitCount-{{ link.uuid }}"></span>
       </li>
 
       {% if link.last_hit_uuid %}
@@ -97,5 +99,28 @@ Create a new link
 {% set visitChartData = hitsPerHour %}
 {% include "my-links.line-chart-visits.html.njk" %}
 
+{% endblock %}
 
+{% block bodyEnd %}
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<script>
+  $(window).on('load', () => {
+    {% for link in links %}
+      $.ajax({
+        method: 'GET',
+        url: '{{ basePath }}/hit-count/today/{{ link.uuid }}',
+      }).done((val) => {
+        $('#todayHitCount-{{ link.uuid }}').text(` | today: ${val}`);
+      });
+
+      $.ajax({
+        method: 'GET',
+        url: '{{ basePath }}/hit-count/this-hour/{{ link.uuid }}',
+      }).done((val) => {
+        $('#thisHourHitCount-{{ link.uuid }}').text(` | today: ${val}`);
+      })
+    {% endfor %}
+  });
+</script>
 {% endblock %}
