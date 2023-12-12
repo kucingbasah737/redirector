@@ -118,7 +118,7 @@ Create a new link
         method: 'GET',
         url: '{{ basePath }}/hit-count/this-hour/{{ link.uuid }}',
       }).done((val) => {
-        $('#thisHourHitCount-{{ link.uuid }}').text(` | today: ${val}`);
+        $('#thisHourHitCount-{{ link.uuid }}').text(` | this hour: ${val}`);
       })
     {% endfor %}
   });
