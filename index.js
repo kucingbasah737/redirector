@@ -29,7 +29,7 @@ const runWebServer = async () => {
   await webserver();
 
   // logger.info(`${MODULE_NAME} 300582D4: Starting webserver`);
-  if (process.env.SYSTEMD_NOTIFY) {
+  if (process.env.SYSTEMD_NOTIFY || process.env.SEND_SYSTEMD_NOTIFY) {
     sdNotify();
   }
 
