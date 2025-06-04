@@ -1,6 +1,6 @@
 {
   "name": "redirector",
-  "version": "0.4.14",
+  "version": "0.4.15",
   "description": "Simple redirector service",
   "main": "index.js",
   "scripts": {
